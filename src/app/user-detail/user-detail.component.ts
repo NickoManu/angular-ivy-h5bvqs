@@ -22,6 +22,9 @@ userService : UserService;
     if(this.user.id>0){
       this.userService.updateUser(this.user);
     }
+    else{
+      this.userService.createUser(this.user);
+    }
   }
 
 }
