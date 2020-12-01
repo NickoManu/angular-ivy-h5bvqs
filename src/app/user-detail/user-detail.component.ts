@@ -9,7 +9,17 @@ import { UserService } from '../users/user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-@Input() user:User; 
+  private userCopy : User;
+  private _user: User;
+@Input() set user (user:User){
+  this._user = user;
+  this.userCopy = Object.assign({},user);
+} 
+
+get user(){
+  return this._user;
+}
+
 userService : UserService;
   constructor(userService: UserService) { 
     this.userService = userService;
@@ -31,7 +41,7 @@ userService : UserService;
     if(this.user.id===0){
       this.user=new User();
     } else{
-      form.reset();
+      this.user = this.userCopy;
     }
   }
 
