@@ -11,8 +11,10 @@ import { User } from './classes/user';
 })
 export class AppComponent  {
 
+showForm : boolean = false;
   userSelected : User = new User();
   updateUser(user: User){
+      this.showForm=true;
       this.userSelected=user;
   }
  
