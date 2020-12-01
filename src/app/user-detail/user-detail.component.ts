@@ -27,4 +27,12 @@ userService : UserService;
     }
   }
 
+  resetForm(form){
+    if(this.user.id===0){
+      this.user=new User();
+    } else{
+      form.reset();
+    }
+  }
+
 }
