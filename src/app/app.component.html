@@ -2,11 +2,14 @@
 <div class="main">
 
   <a href="#" (click)="newUser()">Nuovo Utente</a>
-
-  <div class="users">
-    <app-users (updateUser) = "updateUser($event)"></app-users>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <app-users (updateUser) = "updateUser($event)"></app-users>
+    </div>
+    <div class="col-sm-4" *ngIf="showForm">
+      <app-user-detail [user] = "userSelected"></app-user-detail>
+    </div>
   </div>
-  <div class="user-detail" *ngIf="showForm">
-    <app-user-detail [user] = "userSelected"></app-user-detail>
-  </div>
+</div>
 </div> 
