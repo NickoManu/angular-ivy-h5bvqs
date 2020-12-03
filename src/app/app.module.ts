@@ -11,11 +11,31 @@ import { UserComponent } from './user/user.component';
 import { UserService } from "./users/user.service";
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NavComponent } from './nav/nav.component';
+import { RouterModule, Routes } from "@angular/router";
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 
+
+const routes: Routes = [
+  {
+    path: '/',
+    pathMatch:'full',
+    component: UsersComponent
+  },
+  {
+    path: 'users/new',
+    component: UsersComponent
+  },
+  {
+    path: '/',
+    redirectTo:'users'
+  }
+
+]
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, HelloComponent, UsersComponent, UserComponent, UserDetailComponent, NavComponent],
+  
+  declarations: [AppComponent, HelloComponent, UsersComponent, UserComponent, UserDetailComponent, NavComponent, ModalBasicComponent],
   bootstrap: [AppComponent],
   providers: [UserService]
 })
